@@ -84,8 +84,35 @@ Baseline: the legacy keyword router (`legacy_router.py`) gets **27/36 (75%)** of
 
 ## Results with Jev
 
-_Not run yet — requires a TypeSafe API key._ Run `jev-desk eval data/tickets.jsonl --refresh --out out/eval.md`
-and paste the report here.
+Live run on 2026-09-30 against `jev-latest` (resolved to `jev-1.13.0`), 36 tickets, one request per ticket
+with all seven questions. Full reports: [`results/eval.md`](results/eval.md),
+[`results/handoff.md`](results/handoff.md), [`results/triage.txt`](results/triage.txt).
+
+| | Keyword rules | Jev |
+| --- | --- | --- |
+| Queue accuracy (route everything) | 75% (27/36) | **92% (33/36)** |
+| Accuracy when auto-routing at confidence ≥ 0.8 | — | **100%** on 81% of tickets; 7 go to a human |
+| `blocked` / `needs_engineering` accuracy (p ≥ 0.5) | — | 94% / 86% |
+| Latency p50 / p95 | — | 99 ms / 141 ms |
+
+The three routing misses are all defensible calls on ambiguous tickets (a vague "it doesn't work" routed
+to `bug_or_outage`, a 529 incident routed to `rate_limits_capacity`, a bad model name) and two of them
+fall below the 0.8 gate, so they would have gone to human review rather than being misrouted.
+
+### Fixing a question that didn't work
+
+The first run exposed a bad question. `missing_diagnostics` asked whether the message was "missing details
+support would need … such as the status code, error body, request body, code sample, SDK version, or
+request id". Jev read that literally: almost every ticket lacks *some* item on that list, so it said
+yes (p ≈ 0.89) for 22 of 36 tickets and scored **39%** accuracy with a Brier score of 0.46
+([`results/eval-v1-missing-diagnostics-original.md`](results/eval-v1-missing-diagnostics-original.md)).
+
+The rewrite asks the decision support actually makes — *would we have to reply asking for more information
+before anyone could investigate?* — and gives concrete `true`/`false` criteria. Same tickets, same model:
+**100%** accuracy, Brier 0.036, and nothing left in the 0.4–0.6 "unsure" band.
+
+Caveat: the rewrite was tuned on the same 36 tickets it was scored on, so treat that number as "the
+question now means what we intended", not as a held-out accuracy estimate.
 
 ## Layout
 

@@ -47,11 +47,14 @@ QUESTIONS = {
         },
     ),
     "missing_diagnostics": Noul(
-        instructions="Is the `message` missing details support would need to investigate a technical problem, "
-        "such as the status code, error body, request body, code sample, SDK version, or request id?",
+        instructions="Would support have to reply asking the customer for more information before anyone could "
+        "start investigating? Judge whether the `message` is too vague to act on, not whether every possible "
+        "detail is present.",
         criteria={
-            "true": "A technical problem is described but the key details to reproduce it are absent",
-            "false": "Enough detail is included, or the message is not a technical problem",
+            "true": "Vague report such as 'it doesn't work' or 'I get an error' with no status code, error text, "
+            "or description of what was sent",
+            "false": "Names a concrete error, status code, message, request, or behaviour support can act on, or "
+            "is not a technical problem at all",
         },
     ),
     "frustration": Score(

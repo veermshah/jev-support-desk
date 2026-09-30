@@ -1,0 +1,38 @@
+ticket   pri  route                   conf blocked   eng     ms  actions
+------------------------------------------------------------------------
+T-1001   P1   bug_or_outage           1.00    0.78  0.83    114  escalate_to_engineering
+T-1002   P2   auth                    1.00    0.79  0.15    141  suggest_kb_article
+T-1003   P2   bug_or_outage           0.77    0.81  0.34    119  request_diagnostics, suggest_kb_article
+T-1004   P2   request_validation      0.99    0.53  0.26    105  suggest_kb_article
+T-1005   P1   bug_or_outage           0.65    0.36  0.89    105  escalate_to_engineering
+T-1006   P3   billing                 1.00    0.05  0.19    134  
+T-1007   P2   rate_limits_capacity    0.99    0.30  0.07    142  suggest_kb_article
+T-1008   P2   account_access          1.00    0.91  0.56    166  
+T-1009   P2   sdk_integration         1.00    0.60  0.43    119  suggest_kb_article
+T-1010   P3   model_behavior          1.00    0.11  0.38     88  suggest_kb_article
+T-1011   P3   product_question        0.99    0.12  0.11     88  suggest_kb_article
+T-1012   P2   model_behavior          0.99    0.18  0.65    102  request_diagnostics, suggest_kb_article
+T-1013   P1   rate_limits_capacity    0.71    0.78  0.81     68  escalate_to_engineering, suggest_kb_article
+T-1014   P3   billing                 1.00    0.09  0.06    106  suggest_kb_article
+T-1015   P3   account_access          1.00    0.30  0.14     91  
+T-1016   P3   sdk_integration         0.95    0.12  0.08     82  
+T-1017   P2   auth                    0.98    0.55  0.14    101  suggest_kb_article
+T-1018   P2   billing                 0.78    0.08  0.53     68  
+T-1019   P2   triage_review           0.56    0.59  0.27    141  human_routing_review, suggest_kb_article
+T-1020   P2   model_behavior          0.95    0.24  0.61    112  suggest_kb_article
+T-1021   P3   rate_limits_capacity    0.60    0.32  0.37     75  request_diagnostics, suggest_kb_article
+T-1022   P2   sdk_integration         0.82    0.24  0.16     99  suggest_kb_article
+T-1023   P2   account_access          1.00    0.76  0.14     74  
+T-1024   P2   request_validation      1.00    0.49  0.21     69  suggest_kb_article
+T-1025   P3   model_behavior          1.00    0.06  0.04     79  suggest_kb_article
+T-1026   P1   billing                 1.00    0.88  0.07     59  
+T-1027   P3   sdk_integration         1.00    0.13  0.20    129  suggest_kb_article
+T-1028   P1   bug_or_outage           0.99    0.46  0.58     64  
+T-1029   P2   auth                    0.97    0.64  0.28     88  suggest_kb_article
+T-1030   P3   product_question        0.67    0.03  0.12     76  
+T-1031   P2   sdk_integration         0.84    0.73  0.49    121  request_diagnostics, suggest_kb_article
+T-1032   P3   model_behavior          0.99    0.03  0.61     84  suggest_kb_article
+T-1033   P2   auth                    1.00    0.30  0.06     60  suggest_kb_article
+T-1034   P3   product_question        0.99    0.08  0.08     64  suggest_kb_article
+T-1035   P3   billing                 1.00    0.09  0.07     79  
+T-1036   P3   request_validation      0.99    0.36  0.16    118  suggest_kb_article

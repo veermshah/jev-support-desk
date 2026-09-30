@@ -1,0 +1,12 @@
+{
+  "headers": {"Authorization": "ts_live_REDACTED ", "Content-Type": "text/plain"},
+  "request": {
+    "model": "jev-1.13",
+    "state": "Our checkout is failing with a 500.",
+    "questions": {
+      "outage": {"type": "noul", "instructions": "Is the customer reporting an outage?", "criteria": {"yes": "..."}},
+      "team": {"type": "choice", "instructions": "Which team?", "criteria": {"platform": null}}
+    }
+  },
+  "response": {"status": 401, "body": {"detail": "Invalid API key"}}
+}

@@ -1,0 +1,15 @@
+{
+  "headers": {"Authorization": "Bearer ts_live_REDACTED", "Content-Type": "application/json"},
+  "request": {
+    "model": "jev-latest",
+    "state": {"subject": "Charged twice", "message": "I was billed twice for September."},
+    "questions": {
+      "billing": {"type": "noul", "instructions": "Is this about billing?"},
+      "priority": {"type": "score", "instructions": "How urgent is this?", "criteria": []}
+    }
+  },
+  "response": {
+    "status": 422,
+    "body": {"detail": [{"loc": ["body", "questions", "priority", "criteria"], "msg": "List should have at least 1 item"}]}
+  }
+}
